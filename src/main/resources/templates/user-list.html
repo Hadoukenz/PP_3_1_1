@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
     <title>Users</title>
@@ -32,8 +32,10 @@
                 <td th:text="${user.alias}"></td>
                 <td th:text="${user.banned}"></td>
                 <td>
+                    <form th:method="DELETE" th:action="@{/user-delete/{id}(id=${user.id})}">
+                    <input type="submit" value="Delete">
+                    </form>
                     <a th:href="@{user-update/{id}(id=${user.id})}">Edit</a>
-                    <a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a>
                 </td>
             </tr>
             </tbody>
